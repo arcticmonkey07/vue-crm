@@ -33,7 +33,6 @@ export default {
   }),
   async mounted() {
     this.categories = await this.$store.dispatch('fetchCategories')
-    console.log(this.categories)
     this.loading = false
   },
   components: {
