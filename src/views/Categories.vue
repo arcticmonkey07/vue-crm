@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="page-title">
-      <h3>Категории</h3>
+      <h3>{{'Menu_Category' | localize}}</h3>
     </div>
     <section>
       <Loader v-if="loading" />
@@ -14,7 +14,7 @@
           :key="categories.length + updateCount"
           @updated="updateCategories"
         />
-        <p v-else class="center">Категорий пока нет</p>
+        <p v-else class="center">{{'no_categories_yet' | localize}}</p>
       </div>
     </section>
   </div>
