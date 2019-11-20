@@ -1,14 +1,14 @@
 import firebase from 'firebase/app'
 
-export default  {
+export default {
   actions: {
     async login({dispatch, commit}, {email, password}) {
-     try {
-       await firebase.auth().signInWithEmailAndPassword(email, password)
-     } catch (e) {
-       commit('setError', e)
+      try {
+        await firebase.auth().signInWithEmailAndPassword(email, password)
+      } catch (e) {
+        commit('setError', e)
         throw e
-     }
+      }
     },
     async register({dispatch, commit}, {email, password, name}) {
       try {

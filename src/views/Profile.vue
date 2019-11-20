@@ -12,11 +12,11 @@
           v-model="name"
           :class="{invalid: $v.name.$dirty && !$v.name.required}"
         >
-        <label for="description">{{'Name' | localize}}</label>
+        <label for="description">{{'Name'|localize}}</label>
         <small
           class="helper-text invalid"
           v-if="$v.name.$dirty && !$v.name.required"
-        >{{'Message_EnterName' | localize}}</small>
+        >{{'Message_EnterName'|localize}}</small>
       </div>
 
       <div class="switch">
@@ -29,7 +29,7 @@
       </div>
 
       <button class="btn waves-effect waves-light" type="submit">
-        {{'Update' | localize}}
+        {{'Update'|localize}}
         <i class="material-icons right">send</i>
       </button>
     </form>
@@ -37,16 +37,21 @@
 </template>
 
 <script>
-import {mapGetters, mapActions} from 'vuex'
-import {required} from 'vuelidate/lib/validators'
-
+import { mapGetters, mapActions } from 'vuex'
+import { required } from 'vuelidate/lib/validators'
+import localeFilter from '@/filters/localize.filter'
 export default {
+  metaInfo() {
+    return {
+      title: this.$title('ProfileTitle')
+    }
+  },
   data: () => ({
     name: '',
     isRuLocale: true
   }),
   validations: {
-    name: {required}
+    name: { required }
   },
   mounted() {
     this.name = this.info.name
@@ -77,8 +82,9 @@ export default {
 }
 </script>
 
+
 <style scoped>
-  .switch {
-    margin-bottom: 2rem;
-  }
+.switch {
+  margin-bottom: 2rem;
+}
 </style>
