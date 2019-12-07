@@ -1,20 +1,27 @@
 <template>
   <div>
     <div class="page-title">
-      <h3>{{'Bill'|localize}}</h3>
+      <h3>{{'Bill' | localize}}</h3>
 
       <button class="btn waves-effect waves-light btn-small" @click="refresh">
         <i class="material-icons">refresh</i>
       </button>
     </div>
 
-    <Loader v-if="loading"/>
+    <Loader v-if="loading" />
 
     <div v-else class="row">
-      <HomeBill :rates="currency.rates"/>
 
-      <HomeCurrency :rates="currency.rates" :date="currency.date"/>
+      <HomeBill
+        :rates="currency.rates"
+      />
+
+      <HomeCurrency
+        :rates="currency.rates"
+        :date="currency.date"
+      />
     </div>
+
   </div>
 </template>
 
@@ -24,11 +31,6 @@ import HomeCurrency from '@/components/HomeCurrency'
 
 export default {
   name: 'home',
-  metaInfo() {
-    return {
-      title: this.$title('Menu_Bill')
-    }
-  },
   data: () => ({
     loading: true,
     currency: null
@@ -45,8 +47,7 @@ export default {
     }
   },
   components: {
-    HomeBill,
-    HomeCurrency
+    HomeBill, HomeCurrency
   }
 }
 </script>
