@@ -54,5 +54,3 @@ firebase.auth().onAuthStateChanged(() => {
     }).$mount('#app')
   }
 })
-
-let branch-branch-branch-test
