@@ -13,7 +13,7 @@
     <div v-else class="row">
       <HomeBill :rates="currency.rates"/>
 
-      <HomeCurrency :rates="rates" :date="currency.date"/>
+      <HomeCurrency :rates="currency.rates" :date="currency.date"/>
     </div>
   </div>
 </template>
@@ -31,12 +31,7 @@ export default {
   },
   data: () => ({
     loading: true,
-    currency: null,
-    rates: {
-      EUR: 1,
-      RUB: 70.754506,
-      USD: 1.106537
-    }
+    currency: null
   }),
   async mounted() {
     this.currency = await this.$store.dispatch('fetchCurrency')
