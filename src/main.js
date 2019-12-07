@@ -54,3 +54,5 @@ firebase.auth().onAuthStateChanged(() => {
     }).$mount('#app')
   }
 })
+
+let test-test-test-lalala
